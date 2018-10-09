@@ -1,25 +1,19 @@
-const Cleaner = () => {
-    // constructor() {
-    //     this.films: [],
-    //     this.people: [],
-    //     this.planets: [],
-    //     this.vehicle: [] 
-    // };
+let randomNumber = Math.floor(Math.random() * 6) + 1;
 
-
-
-
-    const getPeople = () => {
-
-    };
-
-
-    const getData = () => {
-        const apiUrl = 'https://swapi.co/api/'
-        fetch(apiUrl)
-            .then(response => response.json)
-            .then(data => data)
-    };
+const getData = () => {
+    const url = 'https://swapi.co/api/'
+    return fetch(url)
+    .then(response => response.json())
+    .then(data => fetchFilms(data.films))
 };
 
-export default Cleaner;
+const fetchFilms = (filmUrl) => {
+    
+    const fetchFilm = fetch(filmUrl)
+        .then(response => response.json())
+        .then(data => data.results[randomNumber])
+
+    return fetchFilm;
+}
+
+module.exports.getData = getData;

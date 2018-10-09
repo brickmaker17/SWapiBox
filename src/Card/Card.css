@@ -1,0 +1,19 @@
+
+.card {
+  /* background-color: #928288; */
+  background-color: #f2f2f2;
+  border: 5px solid #5468B1;
+  border-radius: 12px;
+  height: 20rem;
+  width: 15rem;
+  margin: 5rem;
+}
+
+.card h1 {
+  color: #5468B1;
+}
+
+.card p {
+  color: #01236D;
+  font-weight: 700;
+}
