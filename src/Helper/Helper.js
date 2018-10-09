@@ -1,9 +1,9 @@
 const Cleaner = () => {
     constructor() {
-        this.films: [],
-        this.people: [],
-        this.planets: [],
-        this.vehicle: [] 
+        this.films = [],
+        this.people = [],
+        this.planets = [],
+        this.vehicle = [] 
     };
 
 
@@ -15,6 +15,8 @@ const Cleaner = () => {
 
 
     getData = () => {
-        fetch( );
+        fetch(https://swapi.co/api/ )
+            .then( repsonse => response.json)
+            console.log(response)
     };
 };
