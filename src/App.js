@@ -1,13 +1,15 @@
 import React, { Component } from 'react';
 
 import './App.css';
-import IntroScreen from '../IntroScreen/IntroScreen.js'
-import CardContainer from './CardContainer/CardContainer.js'
+import IntroScreen from './IntroScreen/IntroScreen.js';
+import CardContainer from './CardContainer/CardContainer.js';
+import helper from './Helper/Helper';
 
 
 class App extends Component {
   constructor() {
     super();
+    this.data = new helper();
     this.state = {
       people: [],
       vehicles: [],
@@ -27,9 +29,9 @@ class App extends Component {
     const { films } = this.state
     return (
       <div className="App">
-      <IntroScreen films={ films }/>
-      <CardContainer />
-
+        App
+        <IntroScreen films={ films }/>
+        <CardContainer />
       </div>
     );
   }
