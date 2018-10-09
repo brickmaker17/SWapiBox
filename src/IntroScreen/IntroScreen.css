@@ -1,0 +1,104 @@
+.intro-container {
+  background-color: black;
+  height: 100vh;
+  width: 100%;
+}
+
+.intro-screen {
+  background-color: black;
+  height: 100%;
+  width: 100%;
+}
+
+.intro-container p,
+.intro-container div {
+  color: #FFFF82;
+  margin: auto;
+}
+
+
+.crawl-head,
+.crawl-text {
+  color: #FFFF82;
+  margin: auto;
+}
+
+#board {
+  /* background-color: green; */
+  bottom: 6rem;
+  font-family: Century Gothic, sans-serif;
+  font-size: 350%;
+  font-weight: bold;
+  height: 150rem;
+  left: 14%;
+  overflow: hidden;
+  position: absolute;
+  text-align: justify;
+  transform: perspective(300px) rotateX(25deg);
+  transform-origin: 50% 100%;
+  width: 17em;
+}
+
+#board::after {
+  bottom: 60%;
+  position: absolute;
+  top: 0;
+}
+
+#content {
+  animation: scroll 100s linear 0s;
+  margin: auto;
+  position: absolute;
+  top: 70%;
+}
+
+#title, #subtitle {
+  text-align: center;
+}
+
+@keyframes scroll {
+  0% {
+    top: 100%;
+  }
+  100% {
+    top: -170%;
+  }
+}
+
+.intro-logo {
+  left: 35%;
+  position: absolute;
+  top: 2.5rem;
+  width: 30%;
+}
+
+.intro-arrow {
+  background-color: transparent;
+  border: none;
+  bottom: 1rem;
+  cursor: pointer;
+  display: inline;
+  height: 4rem;
+  left: calc(50% - 4rem);
+  outline: none;
+  position: absolute;
+  width: 8rem;
+}
+
+.intro-arrow:hover .lightsaber {
+  /* fill: #FFFF82; */
+  filter: invert(60%);
+  transition-duration: .4s;
+}
+
+.lightsaber {
+  color: black;
+  filter: invert(100%);
+  height: 3rem;
+  margin: -4px;
+  
+}
+
+.lightsaber-left {
+  transform: scaleX(-1);
+}

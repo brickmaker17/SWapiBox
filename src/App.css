@@ -1,4 +1,14 @@
+body {
+  background-color: #E5E5EB;
+}
+
 .App {
   text-align: center;
 }
 
+.button-container {
+  display: inline-flex;
+  justify-content: space-around;
+  margin: auto;
+  width: 50%;
+}
