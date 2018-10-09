@@ -11,8 +11,8 @@ const IntroScreen = ( props ) => {
       <img alt="logo" src={logo} className="intro-logo" />
       <div className="intro-screen" id="board" >
         <div id="content">
-          <p className="crawl-head" id="title">Episode I</p>
-          <p className="crawl-head" id="subtitle">THE CODER'S MENACE</p>
+          <p className="crawl-head" id="subtitle">{props.title}</p>
+          <p className="crawl-head" id="title">{props.year}</p>
           <div className="crawl-text">
               {props.crawl}
           </div>
@@ -27,7 +27,9 @@ const IntroScreen = ( props ) => {
 }
 
 IntroScreen.propTypes = {
-  currentFilm: PropTypes.string.isRequired
+  crawl: PropTypes.string.isRequired,
+  title: PropTypes.string.isRequired,
+  year: PropTypes.string.isRequired
 }
 
 export default IntroScreen;
