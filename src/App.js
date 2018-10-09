@@ -33,7 +33,11 @@ class App extends Component {
     return (
       <div className="App">
         {/* App */}
-        <IntroScreen crawl={currentFilm.opening_crawl}/>
+        <IntroScreen 
+          crawl={currentFilm.opening_crawl}
+          title={currentFilm.title}
+          year={currentFilm.release_date}
+        />
         <div className="button-container">
           <Button purpose="People" />
           <Button purpose="Planet" />
