@@ -7,6 +7,7 @@ import CardContainer from './CardContainer/CardContainer.js';
 import Button from './Button/Button';
 
 const getData = require ('./Helper/Helper').getData
+const getPeople = require('./Helper/Helper').getPeople
 
 class App extends Component {
   constructor() {
@@ -25,7 +26,10 @@ class App extends Component {
     getData()
     .then(film => this.setState({
       currentFilm: film
-    }))
+    })
+    )
+    getPeople()
+      .then( member => this.setState({  people: member }))
   }
 
   render() {
