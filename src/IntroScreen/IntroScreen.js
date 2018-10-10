@@ -1,7 +1,7 @@
 import React from 'react';
 
 import logo from '../images/SWlogo.png'
-import lightsaber from '../images/saber.svg'
+import rebelClear from '../images/rebel-yellow.svg'
 import './IntroScreen.css';
 import PropTypes from 'prop-types';
 
@@ -19,8 +19,7 @@ const IntroScreen = ( props ) => {
         </div>
       </div>
       <button className="intro-arrow" >
-        <img alt="lightsaber" className="lightsaber lightsaber-left" src={lightsaber} />
-        <img alt="lightsaber" className="lightsaber lightsaber-right" src={lightsaber} />
+        <img alt="" src={rebelClear} className="rebellion-button" />
       </button>
     </div>
   )
