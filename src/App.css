@@ -1,5 +1,6 @@
 body {
   background-color: #E5E5EB;
+  height: 200vh;
 }
 
 .App {
@@ -7,8 +8,12 @@ body {
 }
 
 .button-container {
+  border-top: 8px solid #01226A;
+  border-bottom: 8px solid #5468B1;
+  background-color: #8D7E84;
   display: inline-flex;
   justify-content: space-around;
   margin: auto;
-  width: 50%;
+  padding: 2rem 0;
+  width: 100%;
 }

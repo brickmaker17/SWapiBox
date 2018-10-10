@@ -1,19 +1,53 @@
+strong {
+  color: #01236D;
+  margin-right: 1rem;
+}
+
+p {
+  color: #5468B1;
+  font-size: 1.15rem;
+  font-weight: 700;
+  margin-left: 1rem;
+  text-align: left;
+}
 
 .card {
   /* background-color: #928288; */
   background-color: #f2f2f2;
   border: 5px solid #5468B1;
   border-radius: 12px;
-  height: 20rem;
-  width: 15rem;
+  height: 25rem;
+  width: 20rem;
   margin: 5rem;
 }
 
-.card h1 {
-  color: #5468B1;
+.card h2 {
+  color: #E5E5EB;
 }
 
-.card p {
-  color: #01236D;
-  font-weight: 700;
+.card-title {
+  background-color: #5468B1;
+  /* margin: 0; */
+  padding: 10%;
+}
+
+.card-name {
+  margin: 0;
+}
+
+.card-home {
+  margin-bottom: 0;
+}
+
+.card-population {
+  font-size: 15px;
+  margin-top: 0;
+}
+
+.card-species {
+  
+}
+
+.card-languages {
+  
 }
