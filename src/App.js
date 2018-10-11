@@ -52,7 +52,7 @@ class App extends Component {
           <Button purpose="Vehicle" image={falconImg}/>
           <Button purpose="Favorites" image={rebel}/>
         </div>
-        <CardContainer />
+        <CardContainer characters={this.state.people} />
       </div>
     );
   }

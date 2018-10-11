@@ -8,7 +8,7 @@ p {
   font-size: 1.15rem;
   font-weight: 700;
   margin-left: 1rem;
-  text-align: left;
+  text-align: center;
 }
 
 .card {
@@ -17,8 +17,8 @@ p {
   border: 5px solid #5468B1;
   border-radius: 12px;
   height: 25rem;
-  width: 20rem;
-  margin: 5rem;
+  width: 18rem;
+  margin: 2rem 8px;
 }
 
 .card h2 {
