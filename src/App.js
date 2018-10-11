@@ -29,12 +29,10 @@ class App extends Component {
 
   componentDidMount(){
     getData()
-    .then(film => this.setState({
-      currentFilm: film
-    })
-    )
+      .then(data => this.setState({currentFilm: data}))
+
     getPeople()
-      .then( member => this.setState({  people: member }))
+      .then(data => this.setState({people: data}))
   }
 
   render() {
