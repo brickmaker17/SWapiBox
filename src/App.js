@@ -8,7 +8,6 @@ import falconImg from './images/falcon.svg';
 import './App.css';
 import IntroScreen from './IntroScreen/IntroScreen.js';
 import CardContainer from './CardContainer/CardContainer.js';
-// import Helper from './Helper/Helper';
 import Button from './Button/Button';
 
 const getData = require ('./Helper/Helper').getData
@@ -36,7 +35,7 @@ class App extends Component {
   }
 
   render() {
-    const { currentFilm } = this.state
+    const { currentFilm, people} = this.state
     return (
       <div className="App">
         <IntroScreen 

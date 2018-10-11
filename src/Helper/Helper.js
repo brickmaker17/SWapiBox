@@ -30,7 +30,9 @@ const fetchPerson = async (array) => {
         person = {
             Name: character.name,
             Species: await getSpecies(character.species[0]),
-            Homeworld: await getHomeworld(character.homeworld)
+            Homeworld: await getHomeworld(character.homeworld),
+            population: await getPopulation(character.homeworld),
+
         }
       return person
     })
@@ -47,7 +49,13 @@ const getSpecies = async (url) => {
 const getHomeworld = async (url) => {
     const response = await fetch(url)
     const homeWorld = await response.json()
-    return homeWorld.name
+    return homeWorld.name;
+}
+
+const getPopulation = async (url) => {
+    const repsonse = await fetch(url);
+    const homeWorld = await repsonse.json();
+    return homeWorld.population
 }
 
 
