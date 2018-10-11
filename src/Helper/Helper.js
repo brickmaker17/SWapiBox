@@ -25,12 +25,30 @@ const getPeople = async () => {
 }
 
 const fetchPerson = async (array) => {
-    const characters = array.map( character => {
-      return character
+    let person = {}
+    const characters = array.map( async character => {
+        person = {
+            Name: character.name,
+            Species: await getSpecies(character.species[0]),
+            Homeworld: await getHomeworld(character.homeworld)
+        }
+      return person
     })
-    return characters;
+
+    return Promise.all(characters);
 }
 
+const getSpecies = async (url) => {
+    const response = await fetch(url)
+    const species = await response.json()
+    return species.name
+}
+
+const getHomeworld = async (url) => {
+    const response = await fetch(url)
+    const homeWorld = await response.json()
+    return homeWorld.name
+}
 
 
 
