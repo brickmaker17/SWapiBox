@@ -1,0 +1,24 @@
+.card-container {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  align-items: flex-start;
+  align-content: flex-start;
+  margin: auto;
+  max-width: 1550px;
+}
+
+
+.card-container::after {
+  content: "";
+  flex: 0 1 43%;
+  margin: 2rem;
+}
+
+
+@media screen and (max-width: 630px) {
+  .card-container {
+    display: flex;
+    justify-content: center;
+  }
+}
