@@ -6,7 +6,7 @@ import PropTypes from 'prop-types';
 
 const CardContainer = ({ characters }) => {
   const returnCharacters = characters.map(character => {
-    return <Card character={character} />
+    return <Card key={Math.random()} person={character} />
   })
   return (
     <div className="card-container" >
