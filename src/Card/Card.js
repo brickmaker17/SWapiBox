@@ -11,60 +11,54 @@ class Card extends Component {
       name: '',
       population: '',
       species: '',
-      languages: '',
+      homeworld: '',
+      favorite: false,
     }
   }
 
-  componentDidMount = () => {
-    const { name, population, species, languages } = this.props.character;
-    this.setState({
-      name: name,
-      population: population,
-      species: species,
-      languages: languages,
-
-    })
-  }
-
-  render() {
-    const { name, population, species, languages } = this.state;
+  componentDidUpdate = () => {
+    const { Name, Population, Species, Homeworld } = this.props.person;
+    // this.setState({
+      //   name: Name,
+      //   // population: Population,
+      //   species: Species,
+      //   homeworld: Homeworld,
+      
+      // })
+    }
+    
+    render() {
+    console.log(this.props.person);
+    const { Name, Population, Species, Homeworld } = this.props.person;
     return(
       <div className="card" >
-      <div className="card-title">
-        <h2 className="card-name">
-          { name }
-        </h2>
-      </div>
-      <p className="card-species">
-        Human
-        {/* { species } */}
-      </p>
-      <p className="card-home">
-        <strong>
-          Home World: 
-        </strong>
-        {/* Tatooine */}
-      </p>
-      <p className="card-population">
-        <strong>
-          Population: 
-        </strong>
-        {/* 200,000 */}
-      </p>
-      <p className="card-languages">
-        <strong>
-          Languages: 
-        </strong>
-        { languages }
-      </p>
-
+        <div className="card-title">
+          <h2 className="card-name">
+            { Name }
+          </h2>
+        </div>
+        <p className="card-species">
+          { Species }
+        </p>
+        <p className="card-home">
+          <strong>
+            Home World: 
+          </strong>
+          { Homeworld }
+        </p>
+        <p className="card-population">
+          <strong>
+            Population: 
+          </strong>
+          { Population }
+        </p>
       </div>
     )
   }
 }
 
-Card.PropTypes = {
-  character: PropTypes.object.isRequired,
+Card.propTypes = {
+  person: PropTypes.object.isRequired,
 }
 
 export default Card;

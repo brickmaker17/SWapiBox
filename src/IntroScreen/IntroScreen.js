@@ -32,9 +32,9 @@ const IntroScreen = ( props ) => {
 }
 
 IntroScreen.propTypes = {
-  crawl: PropTypes.string.isRequired,
-  title: PropTypes.string.isRequired,
-  year: PropTypes.string.isRequired
+  crawl: PropTypes.string,
+  title: PropTypes.string,
+  year: PropTypes.string
 }
 
 export default IntroScreen;
