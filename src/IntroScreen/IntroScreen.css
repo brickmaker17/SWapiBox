@@ -4,6 +4,27 @@
   width: 100%;
 }
 
+.sw-logo {
+  color: #FFFF82;
+  font-size: 6rem;
+  font-family: 'Star Jedi Hollow';
+  line-height: 5rem;
+  margin: 0;
+  padding: 0;
+  vertical-align: middle;
+}
+
+.sw-logo-film {
+  font-size: 1.8rem;
+  font-family: 'Futura Medium' sans-serif;
+  font-weight: 400;
+  letter-spacing: 8px;
+  line-height: 2rem;
+  color: #fcfcfc;
+  margin: 1rem 0 0 0;
+  text-transform: uppercase;
+}
+
 .intro-screen {
   background-color: black;
   height: 100%;
@@ -102,4 +123,12 @@
 .intro-arrow:hover .rebellion-button {
   filter: invert(50%);
   transition-duration: .3s;
+}
+
+
+.star {
+  background-color: white;
+  height: 8px;
+  position: absolute;
+  width: 8px;
 }

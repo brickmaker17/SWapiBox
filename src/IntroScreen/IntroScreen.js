@@ -6,9 +6,15 @@ import './IntroScreen.css';
 import PropTypes from 'prop-types';
 
 const IntroScreen = ( props ) => {
+
   return (
     <div className="intro-container">
-      <img alt="logo" src={logo} className="intro-logo" />
+      <div className="title-container" >
+        <h1 className="sw-logo" >swapi</h1>
+          <h1 className="sw-logo-film" >{props.title}</h1>
+        <h1 className="sw-logo" >box</h1>
+      </div>
+      {/* <img alt="logo" src={logo} className="intro-logo" /> */}
       <div className="intro-screen" id="board" >
         <div id="content">
           <p className="crawl-head" id="subtitle">{props.title}</p>
