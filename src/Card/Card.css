@@ -51,3 +51,15 @@ p {
 .card-languages {
   
 }
+
+.favorite-button {
+  background-color: #5468B1;
+  border: none;
+  border-radius: 10px;
+  color: #fcfcfc;
+  font-family: 'Star Jedi';
+  font-size: 1rem;
+  height: 2rem;
+  outline: none;
+  width: 75%;
+}

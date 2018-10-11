@@ -18,18 +18,10 @@ class Card extends Component {
 
   componentDidUpdate = () => {
     const { Name, Population, Species, Homeworld } = this.props.person;
-    // this.setState({
-      //   name: Name,
-      //   // population: Population,
-      //   species: Species,
-      //   homeworld: Homeworld,
-      
-      // })
     }
     
     render() {
-    console.log(this.props.person);
-    const { Name, Population, Species, Homeworld } = this.props.person;
+    const { Name, population, Species, Homeworld } = this.props.person;
     return(
       <div className="card" >
         <div className="card-title">
@@ -50,8 +42,9 @@ class Card extends Component {
           <strong>
             Population: 
           </strong>
-          { Population }
+          { population }
         </p>
+        <button className="favorite-button" >Add To Favorites</button>
       </div>
     )
   }
