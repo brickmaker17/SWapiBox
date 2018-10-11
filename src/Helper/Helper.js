@@ -1,32 +1,31 @@
 let randomNumber = Math.floor(Math.random() * 6) + 1;
 
-const getData = () => {
+const getData = async () => {
     const url = 'https://swapi.co/api/'
 
-    return fetch(url)
-    .then(response => response.json())
-    .then(data => fetchFilms(data.films))
     
+    const response = await fetch(url)
+    const data = await response.json()
+    const returnMovieData = await fetchFilms(data.films)
+    return returnMovieData
 };
 
-const fetchFilms = (filmUrl) => {
-    
-    const fetchFilm = fetch(filmUrl)
-        .then(response => response.json())
-        .then(data => data.results[randomNumber])
-
-    return fetchFilm;
+const fetchFilms = async (filmUrl) => {
+    const response = await fetch(filmUrl)
+    const data = await response.json();
+    return data.results[randomNumber];
 }
 
-const getPeople = () => {
+const getPeople = async () => {
     const url = 'https://swapi.co/api/people';
-    return fetch(url)
-      .then(response => response.json())
-      .then(data => fetchPerson(data.results))
+    const response = await  fetch(url)
+    const data = await response.json()
+    const people = fetchPerson(data.results)
+    return people
 }
 
-const fetchPerson = (array) => {
-    const characters = array.map(character => {
+const fetchPerson = async (array) => {
+    const characters = array.map( character => {
       return character
     })
     return characters;
@@ -34,29 +33,6 @@ const fetchPerson = (array) => {
 
 
 
-
-
-
-// const getPeople = () => {
-//     const url = 'https://swapi.co/api/'
-
-//     return fetch(url)
-//         .then(response => response.json())
-//         .then( data => fetchPeople(console.log(data.people)))
-
-// }
-
-// const fetchPeople = (peopleUrl) => {
-    
-//     const fetchPerson = 
-//         peopleUrl.map( person => {
-//             return fetch(peopleUrl)
-//                 .then( response => response.json())
-//                 .then( data => (console.log(data)))
-//         })
-
-//     return Promise.all(fetchPerson);
-// }
 
 const _getData = getData;
 export { _getData as getData };
