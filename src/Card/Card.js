@@ -4,8 +4,8 @@ import './Card.css';
 import PropTypes from 'prop-types';
 
 class Card extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
 
     this.state = {
       name: '',
@@ -16,9 +16,9 @@ class Card extends Component {
     }
   }
 
-  componentDidUpdate = () => {
-    const { Name, Population, Species, Homeworld } = this.props.person;
-    }
+  // componentDidUpdate = () => {
+  //   const { Name, Population, Species, Homeworld } = this.props.person;
+  //   }
     
     render() {
     const { Name, population, Species, Homeworld } = this.props.person;

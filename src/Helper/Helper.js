@@ -59,8 +59,53 @@ const getPopulation = async (url) => {
 }
 
 
+const getPlanets = async () => {
+    const url = 'https://swapi.co/api/planets/'
+
+    const planet = {}
+    const response = await fetch(url);
+    const data = await response.json();
+    const planetArr = data.results.map( async world => {
+            const planet1 =  await world.residents.map( async resident => {
+                await fetchResident( resident )
+            })
+            return Promise.all(planet1)
+    })
+    return Promise.all(planetArr)
+}
+
+const fetchResident = async (url) => {
+    const response = await fetch(url);
+    const data = await response.json();
+    return data.name
+}
+
+
+const getVehicles = async () => {
+    const url = 'https://swapi.co/api/vehicles/'
+    let vehicle = {}
+    const response = await fetch(url);
+    const data = await response.json();
+    console.log(data.results)
+    const newVehicle = data.results.map( vehicleIteration => {
+        return vehicle = {
+            Name: vehicleIteration.name,
+            Model: vehicleIteration.model,
+            Class: vehicleIteration.vehicle_class,
+            Passengers: vehicleIteration.passengers
+        }
+    })
+    
+    return newVehicle
+}
+
+
 
 const _getData = getData;
 export { _getData as getData };
 const _getPeople = getPeople;
 export { _getPeople as getPeople };
+const _getPlanets = getPlanets;
+export { _getPlanets as getPlanets };
+const _getVehicles = getVehicles;
+export { _getVehicles as getVehicles };
