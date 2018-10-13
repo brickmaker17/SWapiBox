@@ -17,7 +17,7 @@ class Card extends Component {
   }
 
   componentDidUpdate = () => {
-    const { Name, Population, Species, Homeworld } = this.props.person;
+    const { Name, population, Species, Homeworld } = this.props.person;
     }
     
     render() {
