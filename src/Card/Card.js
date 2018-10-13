@@ -11,6 +11,17 @@ class Card extends Component {
       favorite: false,
     }
   }
+
+  changeFavorite = () => {
+    this.setState({
+      favorite: !this.state.favorite
+    })
+  }
+
+  componentDidUpdate = () => {
+    const { Name, population, Species, Homeworld } = this.props.person;
+    }
+
     
     render() {
     const { peoplename, population, species, homeworld } = this.props.people;
@@ -38,7 +49,7 @@ class Card extends Component {
           </strong>
           { population }
         </p>
-        <button className="favorite-button" >Add To Favorites</button>
+        <button className="favorite-button" onClick={this.changeFavorite} >Add To Favorites</button>
       </div>
     )
   }
