@@ -8,25 +8,19 @@ class Card extends Component {
     super(props);
 
     this.state = {
-      name: '',
-      population: '',
-      species: '',
-      homeworld: '',
       favorite: false,
     }
   }
-
-  componentDidUpdate = () => {
-    const { Name, population, Species, Homeworld } = this.props.person;
-    }
     
     render() {
-    const { name, population, species, homeworld } = this.props.person;
+    const { peoplename, population, species, homeworld } = this.props.people;
+    const { planetname, terrain, planetpopulation, climate, residents} = this.props.planets;
+    const { vehiclename , model, vehicle_class, passengers } = this.props.vehicles;
     return(
-      <div className="card" >
+      <div className="person-card" >
         <div className="card-title">
           <h2 className="card-name">
-            { name }
+            { peoplename }
           </h2>
         </div>
         <p className="card-species">

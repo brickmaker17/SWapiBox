@@ -24,11 +24,12 @@ class App extends Component {
       vehicles: [],
       planets: [],
       films: [],
-      currentFilm: {}
+      currentFilm: {},
+      display: []
     }
   }
 
-  componentDidMount(){
+  componentDidMount() {
     getData()
       .then(data => this.setState({currentFilm: data}))
     getPeople()
@@ -39,8 +40,13 @@ class App extends Component {
       .then(data => this.setState({vehicles: data}))
   }
 
+
+  setButtonName = (btnName) => {
+
+  }
+
   render() {
-    const { currentFilm} = this.state
+    const { currentFilm, people, planets, vehicles, display} = this.state
     return (
       <div className="App">
         <IntroScreen 
@@ -54,7 +60,7 @@ class App extends Component {
           <Button purpose="Vehicle" image={falconImg}/>
           <Button purpose="Favorites" image={rebel}/>
         </div>
-        <CardContainer characters={this.state.people} />
+        <CardContainer people={ people} planets={ planets } vehicles={ vehicles } display={ display } />
       </div>
     );
   }
