@@ -8,12 +8,14 @@ class Card extends Component {
     super(props);
 
     this.state = {
-      name: '',
-      population: '',
-      species: '',
-      homeworld: '',
       favorite: false,
     }
+  }
+
+  changeFavorite = () => {
+    this.setState({
+      favorite: !this.state.favorite
+    })
   }
 
   componentDidUpdate = () => {
@@ -44,7 +46,7 @@ class Card extends Component {
           </strong>
           { population }
         </p>
-        <button className="favorite-button" >Add To Favorites</button>
+        <button className="favorite-button" onClick={this.changeFavorite} >Add To Favorites</button>
       </div>
     )
   }
