@@ -17,26 +17,26 @@ class Card extends Component {
   }
 
   // componentDidUpdate = () => {
-  //   const { Name, Population, Species, Homeworld } = this.props.person;
+  //   const { name, population, species, homeworld } = this.props.person;
   //   }
     
     render() {
-    const { Name, population, Species, Homeworld } = this.props.person;
+    const { name, population, species, homeworld } = this.props.person;
     return(
       <div className="card" >
         <div className="card-title">
           <h2 className="card-name">
-            { Name }
+            { name }
           </h2>
         </div>
         <p className="card-species">
-          { Species }
+          { species }
         </p>
         <p className="card-home">
           <strong>
-            Home World: 
+            home World: 
           </strong>
-          { Homeworld }
+          { homeworld }
         </p>
         <p className="card-population">
           <strong>
