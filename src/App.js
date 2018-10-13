@@ -12,6 +12,8 @@ import Button from './Button/Button';
 
 const getData = require ('./Helper/Helper').getData
 const getPeople = require('./Helper/Helper').getPeople
+const getPlanets = require('./Helper/Helper').getPlanets
+const getVehicles = require('./Helper/Helper').getVehicles
 
 class App extends Component {
   constructor() {
@@ -32,10 +34,14 @@ class App extends Component {
 
     getPeople()
       .then(data => this.setState({people: data}))
+    getPlanets()
+      .then(data => this.setState({planets: data }))
+    getVehicles()
+      .then(data => this.setState({vehicles: data}))
   }
 
   render() {
-    const { currentFilm, people} = this.state
+    const { currentFilm} = this.state
     return (
       <div className="App">
         <IntroScreen 

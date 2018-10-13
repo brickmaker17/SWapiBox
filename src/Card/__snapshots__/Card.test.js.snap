@@ -32,22 +32,17 @@ ShallowWrapper {
         >
           <h2
             className="card-name"
-          >
-            Luke
-          </h2>
+          />
         </div>,
         <p
           className="card-species"
-        >
-          Human
-        </p>,
+        />,
         <p
           className="card-home"
         >
           <strong>
-            Home World:
+            home World:
           </strong>
-          stewjon
         </p>,
         <p
           className="card-population"
@@ -74,9 +69,7 @@ ShallowWrapper {
         "props": Object {
           "children": <h2
             className="card-name"
-          >
-            Luke
-          </h2>,
+          />,
           "className": "card-title",
         },
         "ref": null,
@@ -85,11 +78,11 @@ ShallowWrapper {
           "key": undefined,
           "nodeType": "host",
           "props": Object {
-            "children": "Luke",
+            "children": undefined,
             "className": "card-name",
           },
           "ref": null,
-          "rendered": "Luke",
+          "rendered": null,
           "type": "h2",
         },
         "type": "div",
@@ -99,11 +92,11 @@ ShallowWrapper {
         "key": undefined,
         "nodeType": "host",
         "props": Object {
-          "children": "Human",
+          "children": undefined,
           "className": "card-species",
         },
         "ref": null,
-        "rendered": "Human",
+        "rendered": null,
         "type": "p",
       },
       Object {
@@ -113,9 +106,9 @@ ShallowWrapper {
         "props": Object {
           "children": Array [
             <strong>
-              Home World:
+              home World:
             </strong>,
-            "stewjon",
+            undefined,
           ],
           "className": "card-home",
         },
@@ -126,13 +119,13 @@ ShallowWrapper {
             "key": undefined,
             "nodeType": "host",
             "props": Object {
-              "children": "Home World:",
+              "children": "home World:",
             },
             "ref": null,
-            "rendered": "Home World:",
+            "rendered": "home World:",
             "type": "strong",
           },
-          "stewjon",
+          undefined,
         ],
         "type": "p",
       },
@@ -193,22 +186,17 @@ ShallowWrapper {
           >
             <h2
               className="card-name"
-            >
-              Luke
-            </h2>
+            />
           </div>,
           <p
             className="card-species"
-          >
-            Human
-          </p>,
+          />,
           <p
             className="card-home"
           >
             <strong>
-              Home World:
+              home World:
             </strong>
-            stewjon
           </p>,
           <p
             className="card-population"
@@ -235,9 +223,7 @@ ShallowWrapper {
           "props": Object {
             "children": <h2
               className="card-name"
-            >
-              Luke
-            </h2>,
+            />,
             "className": "card-title",
           },
           "ref": null,
@@ -246,11 +232,11 @@ ShallowWrapper {
             "key": undefined,
             "nodeType": "host",
             "props": Object {
-              "children": "Luke",
+              "children": undefined,
               "className": "card-name",
             },
             "ref": null,
-            "rendered": "Luke",
+            "rendered": null,
             "type": "h2",
           },
           "type": "div",
@@ -260,11 +246,11 @@ ShallowWrapper {
           "key": undefined,
           "nodeType": "host",
           "props": Object {
-            "children": "Human",
+            "children": undefined,
             "className": "card-species",
           },
           "ref": null,
-          "rendered": "Human",
+          "rendered": null,
           "type": "p",
         },
         Object {
@@ -274,9 +260,9 @@ ShallowWrapper {
           "props": Object {
             "children": Array [
               <strong>
-                Home World:
+                home World:
               </strong>,
-              "stewjon",
+              undefined,
             ],
             "className": "card-home",
           },
@@ -287,13 +273,13 @@ ShallowWrapper {
               "key": undefined,
               "nodeType": "host",
               "props": Object {
-                "children": "Home World:",
+                "children": "home World:",
               },
               "ref": null,
-              "rendered": "Home World:",
+              "rendered": "home World:",
               "type": "strong",
             },
-            "stewjon",
+            undefined,
           ],
           "type": "p",
         },
