@@ -4,9 +4,9 @@ import './CardContainer.css';
 import Card from '../Card/Card';
 import PropTypes from 'prop-types';
 
-const CardContainer = ({ characters }) => {
-  const returnCharacters = characters.map(character => {
-    return <Card key={Math.random()} person={character} />
+const CardContainer = ({ people, planets, vehicles, display }) => {
+  const returnCharacters = people.map(character => {
+    return <Card key={Math.random()} people={character} planets={ planets } vehicles={ vehicles} display={ display } />
   })
   return (
     <div className="card-container" >

@@ -4,8 +4,11 @@ import './Button.css';
 import PropTypes from 'prop-types';
 
 const Button = ({ purpose, image }) => {
+
   return (
-    <div className="button" >
+    <div className="button"
+         onClick=""
+    >
       <img className="favorite-button-icon" alt="img" src={image} />
       <h2 className="button-label" >
         {purpose}

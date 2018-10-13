@@ -29,8 +29,8 @@ const fetchPerson = async (array) => {
     const characters = array.map( async character => {
         person = {
             name: character.name,
-            species: await getSpecies(character.species[0]),
-            homeworld: await getHomeworld(character.homeworld),
+            Species: await getSpecies(character.species[0]),
+            Homeworld: await getHomeworld(character.homeworld),
             population: await getPopulation(character.homeworld),
 
         }
@@ -71,13 +71,12 @@ const getPlanets = async () => {
             })
             const residents = Promise.all(planet1)
             planet = {
-                Name: world.name,
-                Terrain: world.terrain,
-                Population: world.population,
-                Climate: world.climate,
-                Residents: await residents,
+                name: world.name,
+                terrain: world.terrain,
+                population: world.population,
+                climate: world.climate,
+                residents: await residents,
             }
-            console.log(planet1)
             return planet
         })
         
@@ -99,10 +98,10 @@ const getVehicles = async () => {
     const data = await response.json();
     const newVehicle = data.results.map( vehicleIteration => {
         return vehicle = {
-            Name: vehicleIteration.name,
-            Model: vehicleIteration.model,
-            Class: vehicleIteration.vehicle_class,
-            Passengers: vehicleIteration.passengers
+            name: vehicleIteration.name,
+            model: vehicleIteration.model,
+            vehicle_class: vehicleIteration.vehicle_class,
+            passengers: vehicleIteration.passengers
         }
     })
     
