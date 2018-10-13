@@ -31,7 +31,6 @@ class App extends Component {
   componentDidMount(){
     getData()
       .then(data => this.setState({currentFilm: data}))
-
     getPeople()
       .then(data => this.setState({people: data}))
     getPlanets()

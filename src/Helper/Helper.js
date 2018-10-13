@@ -29,8 +29,8 @@ const fetchPerson = async (array) => {
     const characters = array.map( async character => {
         person = {
             name: character.name,
-            species: await getSpecies(character.species[0]),
-            homeworld: await getHomeworld(character.homeworld),
+            Species: await getSpecies(character.species[0]),
+            Homeworld: await getHomeworld(character.homeworld),
             population: await getPopulation(character.homeworld),
 
         }
@@ -77,7 +77,6 @@ const getPlanets = async () => {
                 Climate: world.climate,
                 Residents: await residents,
             }
-            console.log(planet1)
             return planet
         })
         
