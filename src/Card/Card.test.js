@@ -1,21 +1,31 @@
-import React from 'react'
-import { shallow } from 'enzyme'
+import React from 'react';
+import { configure, shallow } from 'enzyme';
+import Adapter from 'enzyme-adapter-react-16';
 
-import Card from './Card'
+configure({ adapter: new Adapter() });
 
-describe( 'Card', () => {
+import Card from './Card';
+
+describe('Card', () => {
+
+  const mockPerson = {
+    Homeworld: "Tatooine",
+    Name: "Luke Skywalker",
+    Species: "Human",
+    population: "200000",
+  }
 
   it('Should match the snapshot', () => {
     const mockProp = [{
-      homeworld: 'stewjon',
-      name: 'Luke',
-      species: 'Human',
+      Homeworld: 'stewjon',
+      Name: 'Luke',
+      Species: 'Human',
       population: '2'
-      }]
+    }]
 
-    const wrapper = shallow(<Card {...mockProp} />)
+    const wrapper = shallow(<Card  person={mockProp[0]} />)
     expect(wrapper).toMatchSnapshot()
   })
 
-  
+
 })
