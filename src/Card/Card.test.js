@@ -7,9 +7,9 @@ describe( 'Card', () => {
 
   it('Should match the snapshot', () => {
     const mockProp = [{
-      Homeworld: 'stewjon',
-      Name: 'Luke',
-      Species: 'Human',
+      homeworld: 'stewjon',
+      name: 'Luke',
+      species: 'Human',
       population: '2'
       }]
 

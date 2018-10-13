@@ -14,6 +14,7 @@ const getData = require ('./Helper/Helper').getData
 const getPeople = require('./Helper/Helper').getPeople
 const getPlanets = require('./Helper/Helper').getPlanets
 const getVehicles = require('./Helper/Helper').getVehicles
+
 class App extends Component {
   constructor() {
     super();
@@ -40,7 +41,7 @@ class App extends Component {
   }
 
   render() {
-    const { currentFilm, people} = this.state
+    const { currentFilm} = this.state
     return (
       <div className="App">
         <IntroScreen 

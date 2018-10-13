@@ -28,9 +28,9 @@ const fetchPerson = async (array) => {
     let person = {}
     const characters = array.map( async character => {
         person = {
-            Name: character.name,
-            Species: await getSpecies(character.species[0]),
-            Homeworld: await getHomeworld(character.homeworld),
+            name: character.name,
+            species: await getSpecies(character.species[0]),
+            homeworld: await getHomeworld(character.homeworld),
             population: await getPopulation(character.homeworld),
 
         }
@@ -62,17 +62,28 @@ const getPopulation = async (url) => {
 const getPlanets = async () => {
     const url = 'https://swapi.co/api/planets/'
 
-    const planet = {}
+    let planet = {}
     const response = await fetch(url);
     const data = await response.json();
     const planetArr = data.results.map( async world => {
             const planet1 =  await world.residents.map( async resident => {
-                await fetchResident( resident )
+                return fetchResident( resident )
             })
-            return Promise.all(planet1)
-    })
+            const residents = Promise.all(planet1)
+            planet = {
+                Name: world.name,
+                Terrain: world.terrain,
+                Population: world.population,
+                Climate: world.climate,
+                Residents: await residents,
+            }
+            console.log(planet1)
+            return planet
+        })
+        
     return Promise.all(planetArr)
 }
+
 
 const fetchResident = async (url) => {
     const response = await fetch(url);
@@ -86,7 +97,6 @@ const getVehicles = async () => {
     let vehicle = {}
     const response = await fetch(url);
     const data = await response.json();
-    console.log(data.results)
     const newVehicle = data.results.map( vehicleIteration => {
         return vehicle = {
             Name: vehicleIteration.name,
