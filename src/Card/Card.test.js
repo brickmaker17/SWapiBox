@@ -1,28 +1,50 @@
 import React from 'react';
 import { configure, shallow } from 'enzyme';
 
+
+import Adapter from 'enzyme-adapter-react-16';
 import Card from './Card';
 
-describe('Card', () => {
+configure({ adapter: new Adapter() });
 
-  const mockPerson = {
-    Homeworld: "Tatooine",
-    Name: "Luke Skywalker",
-    Species: "Human",
-    population: "200000",
-  }
+
+
+describe('Card', () => {
+  const mockProp = [{
+    Homeworld: 'stewjon',
+    Name: 'Luke',
+    Species: 'Human',
+    population: '2'
+  }]
+
+  let wrapper;
+
+  beforeEach(() => {
+    wrapper = shallow(<Card person={mockProp[0]} />)
+  })
 
   it('Should match the snapshot', () => {
-    const mockProp = [{
-      Homeworld: 'stewjon',
-      Name: 'Luke',
-      Species: 'Human',
-      population: '2'
-    }]
-
-    const wrapper = shallow(<Card  person={mockProp[0]} />)
     expect(wrapper).toMatchSnapshot()
   })
 
+  it('should changeFavorite method if the favorite button is pressed', () => {
+    const changeFavoriteMock = jest.fn();
+    wrapper = shallow(<Card 
+      person={mockProp[0]}
+      changeFavorite={changeFavoriteMock()}
+      />)
+    wrapper.find('.favorite-button').simulate('click');
+
+    expect(changeFavoriteMock).toHaveBeenCalled();
+  })
+
+  it('should update favorite in state when the button is clicked', () => {
+    wrapper = shallow(<Card
+      person={mockProp[0]}
+    />)
+    wrapper.find('.favorite-button').simulate('click');
+
+    expect(wrapper.state().favorite).toEqual(true);
+  })
 
 })

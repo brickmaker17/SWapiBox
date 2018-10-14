@@ -13,10 +13,22 @@ class Card extends Component {
     }
   }
 
+
   componentDidMount() {
     this.setState({ selected: this.props.display})
   }
 
+
+
+  changeFavorite = () => {
+    this.setState({
+      favorite: !this.state.favorite
+    })
+  }
+
+  componentDidUpdate = () => {
+    const { Name, population, Species, Homeworld } = this.props.person;
+    }
 
 
     
@@ -32,6 +44,23 @@ class Card extends Component {
         <div>
 
         </div>
+        <p className="card-species">
+          { species }
+        </p>
+        <p className="card-home">
+          <strong>
+            home World: 
+          </strong>
+          { homeworld }
+        </p>
+        <p className="card-population">
+          <strong>
+            Population: 
+          </strong>
+          { population }
+        </p>
+        <button className="favorite-button" onClick={this.changeFavorite} >Add To Favorites</button>
+      </div>
     )
     }
 

@@ -54,6 +54,7 @@ ShallowWrapper {
         </p>,
         <button
           className="favorite-button"
+          onClick={[Function]}
         >
           Add To Favorites
         </button>,
@@ -166,6 +167,7 @@ ShallowWrapper {
         "props": Object {
           "children": "Add To Favorites",
           "className": "favorite-button",
+          "onClick": [Function],
         },
         "ref": null,
         "rendered": "Add To Favorites",
@@ -208,6 +210,7 @@ ShallowWrapper {
           </p>,
           <button
             className="favorite-button"
+            onClick={[Function]}
           >
             Add To Favorites
           </button>,
@@ -320,6 +323,7 @@ ShallowWrapper {
           "props": Object {
             "children": "Add To Favorites",
             "className": "favorite-button",
+            "onClick": [Function],
           },
           "ref": null,
           "rendered": "Add To Favorites",
