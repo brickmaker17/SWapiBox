@@ -13,14 +13,14 @@ class Card extends Component {
   }
     
     render() {
-    const { peoplename, population, species, homeworld } = this.props.people;
+    const { name, population, species, homeworld } = this.props.people;
     const { planetname, terrain, planetpopulation, climate, residents} = this.props.planets;
     const { vehiclename , model, vehicle_class, passengers } = this.props.vehicles;
     return(
       <div className="person-card" >
         <div className="card-title">
           <h2 className="card-name">
-            { peoplename }
+            { name }
           </h2>
         </div>
         <p className="card-species">

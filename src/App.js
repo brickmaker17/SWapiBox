@@ -25,7 +25,7 @@ class App extends Component {
       planets: [],
       films: [],
       currentFilm: {},
-      display: []
+      display: ''
     }
   }
 
@@ -42,7 +42,7 @@ class App extends Component {
 
 
   setButtonName = (btnName) => {
-
+    this.setState({ display: btnName })
   }
 
   render() {
@@ -55,10 +55,10 @@ class App extends Component {
           year={currentFilm.release_date}
         />
         <div className="button-container">
-          <Button purpose="People" image={bb8}/>
-          <Button purpose="Planet" image={deathstar}/>
-          <Button purpose="Vehicle" image={falconImg}/>
-          <Button purpose="Favorites" image={rebel}/>
+          <Button setButtonName={ this.setButtonName } purpose="People" image={bb8}/>
+          <Button setButtonName={ this.setButtonName } purpose="Planet" image={deathstar}/>
+          <Button setButtonName={ this.setButtonName } purpose="Vehicle" image={falconImg}/>
+          <Button setButtonName={ this.setButtonName } purpose="Favorites" image={rebel}/>
         </div>
         <CardContainer people={ people} planets={ planets } vehicles={ vehicles } display={ display } />
       </div>
