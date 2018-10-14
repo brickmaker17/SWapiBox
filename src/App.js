@@ -25,7 +25,8 @@ class App extends Component {
       planets: [],
       films: [],
       currentFilm: {},
-      display: ''
+      display: '',
+      displayName: ['People', 'Planets', 'Vehicles', '']
     }
   }
 
@@ -46,7 +47,7 @@ class App extends Component {
   }
 
   render() {
-    const { currentFilm, people, planets, vehicles, display} = this.state
+    const { currentFilm, people, planets, vehicles, display, displayName } = this.state
     return (
       <div className="App">
         <IntroScreen 
@@ -60,7 +61,7 @@ class App extends Component {
           <Button setButtonName={ this.setButtonName } purpose="Vehicle" image={falconImg}/>
           <Button setButtonName={ this.setButtonName } purpose="Favorites" image={rebel}/>
         </div>
-        <CardContainer people={ people} planets={ planets } vehicles={ vehicles } display={ display } />
+        <CardContainer displayName={ displayName } people={ people} planets={ planets } vehicles={ vehicles } display={ display } />
       </div>
     );
   }
