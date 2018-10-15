@@ -1,6 +1,7 @@
 strong {
   color: #01236D;
   margin-right: 1rem;
+  text-align: left;
 }
 
 p {
@@ -27,21 +28,21 @@ li {
   height: 25rem;
   width: 18rem;
   margin: 2rem 8px;
+  transition-duration: .2s;
+}
+
+.card:hover {
+  box-shadow: 0 1px 1px #222;
 }
 
 .card h2 {
-  color: #E5E5EB;
-}
-
-.card-title {
-}
-
-.name {
+  /* color: #E5E5EB; */
   background-color: #5468B1;
   color: #E5E5EB;
   letter-spacing: 1px;
   margin: 0;
   padding: 10% 0;
+  /* text-decoration:; */
   width: 100%;
 }
 
@@ -54,10 +55,26 @@ li {
   margin-top: 0;
 }
 
+ul {
+  /* background-color: green; */
+  height: 55%;
+  padding: 0 5px;
+}
+
 .species,
 .terrain,
-.model {
+.model,
+.class,
+.population,
+.climate,
+.homeworld,
+.passengers,
+.residents {
+  color: #5468B1;
+  font-family: 'Courier New', Courier, monospace;
   font-size: 1rem;
+  font-weight: 800;
+  line-height: 200%;
 }
 
 .card-languages {
@@ -66,18 +83,20 @@ li {
 
 .favorite-button {
   background-color: #5468B1;
-  border: none;
+  border: 3px solid transparent;
   border-radius: 10px;
   color: #fcfcfc;
   font-family: 'Star Jedi';
   font-size: 1rem;
-  height: 2rem;
+  height: 3rem;
   outline: none;
-  width: 75%;
+  transition: .4s ease-out;
+  width: 90%;
 }
 
 .favorite-button:hover {
-  /* box-shadow: 0 .5px 1px #000; */
-  box-shadow: inset 0 0 20px red, 0 0 20px red;
+  background-color: transparent;
+  border: 3px solid white;
+  box-shadow: inset 0 0 20px #0343D6, 0 0 20px #0343D6;
+  color: #5468B1;
 }
-
