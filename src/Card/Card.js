@@ -23,7 +23,12 @@ class Card extends Component {
     this.setState({
       favorite: !this.state.favorite
     })
-    this.props.addFavorite(this.props.person)
+    if (this.state.favorite) {
+      // localStorage.removeItem(`favoriteItem${this.props.cardData.name}`)
+    } else {
+      this.props.addFavorite(this.props.cardData)
+      // localStorage.setItem(`favoriteItem${this.props.cardData.name}`, JSON.stringify(this.props.cardData))
+    }
   }
     
   render() {
@@ -32,9 +37,9 @@ class Card extends Component {
     const { name } = this.props.cardData;
     const fillings = keys.map(key => {
       if (key === 'name') {
-        return null
+        return null;
       }
-      return <li className={key.toLowerCase()} >{`${key}: ${cardData[key]}`}</li>
+      return <li className={key.toLowerCase()} ><strong>{`${key}:`}</strong>{`${cardData[key]}`}</li>
     })
 
     return (
@@ -43,6 +48,12 @@ class Card extends Component {
         <ul>
           {fillings}
         </ul>
+        <button className="favorite-button" onClick={this.changeFavorite} >
+          {!this.state.favorite ?
+            "Add To Favorites" :
+            "Remove Favorite"
+          }
+        </button>
       </div>
     )
   }
