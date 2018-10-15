@@ -9,54 +9,48 @@ class Card extends Component {
 
     this.state = {
       favorite: false,
+      selected: '',
     }
+  }
+
+  componentDidMount = () => {
+    this.setState({
+      selected: this.props.display
+    })
   }
 
   changeFavorite = () => {
     this.setState({
       favorite: !this.state.favorite
     })
+    this.props.addFavorite(this.props.person)
   }
-
-  componentDidUpdate = () => {
-    const { Name, population, Species, Homeworld } = this.props.person;
-    }
-
     
-    render() {
-    const { peoplename, population, species, homeworld } = this.props.people;
-    const { planetname, terrain, planetpopulation, climate, residents} = this.props.planets;
-    const { vehiclename , model, vehicle_class, passengers } = this.props.vehicles;
-    return(
-      <div className="person-card" >
-        <div className="card-title">
-          <h2 className="card-name">
-            { peoplename }
-          </h2>
-        </div>
-        <p className="card-species">
-          { species }
-        </p>
-        <p className="card-home">
-          <strong>
-            home World: 
-          </strong>
-          { homeworld }
-        </p>
-        <p className="card-population">
-          <strong>
-            Population: 
-          </strong>
-          { population }
-        </p>
-        <button className="favorite-button" onClick={this.changeFavorite} >Add To Favorites</button>
+  render() {
+    const { cardData } = this.props;
+    const keys = Object.keys(this.props.cardData);
+    const { name } = this.props.cardData;
+    const fillings = keys.map(key => {
+      if (key === 'name') {
+        return null
+      }
+      return <li className={key.toLowerCase()} >{`${key}: ${cardData[key]}`}</li>
+    })
+
+    return (
+      <div className="card" >
+        <h2>{ name }</h2>
+        <ul>
+          {fillings}
+        </ul>
       </div>
     )
   }
 }
 
 Card.propTypes = {
-  person: PropTypes.object.isRequired,
+  cardData: PropTypes.object.isRequired,
+  addFavorite: PropTypes.func.isRequired,
 }
 
 export default Card;

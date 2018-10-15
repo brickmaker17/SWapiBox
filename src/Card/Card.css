@@ -11,7 +11,15 @@ p {
   text-align: center;
 }
 
+<<<<<<< HEAD
 .person-card {
+=======
+li {
+  list-style: none;
+}
+
+.card {
+>>>>>>> 9a245a4a97c2cee86cce4698053923279651b642
   /* background-color: #928288; */
   background-color: #f2f2f2;
   border: 5px solid #5468B1;
@@ -26,13 +34,15 @@ p {
 }
 
 .card-title {
-  background-color: #5468B1;
-  /* margin: 0; */
-  padding: 10%;
 }
 
-.card-name {
+.name {
+  background-color: #5468B1;
+  color: #E5E5EB;
+  letter-spacing: 1px;
   margin: 0;
+  padding: 10% 0;
+  width: 100%;
 }
 
 .card-home {
@@ -44,8 +54,10 @@ p {
   margin-top: 0;
 }
 
-.card-species {
-  
+.species,
+.terrain,
+.model {
+  font-size: 1rem;
 }
 
 .card-languages {
@@ -63,3 +75,9 @@ p {
   outline: none;
   width: 75%;
 }
+
+.favorite-button:hover {
+  /* box-shadow: 0 .5px 1px #000; */
+  box-shadow: inset 0 0 20px red, 0 0 20px red;
+}
+

@@ -100,7 +100,7 @@ const getVehicles = async () => {
         return vehicle = {
             name: vehicleIteration.name,
             model: vehicleIteration.model,
-            vehicle_class: vehicleIteration.vehicle_class,
+            class: vehicleIteration.vehicle_class,
             passengers: vehicleIteration.passengers
         }
     })
