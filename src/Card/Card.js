@@ -27,20 +27,21 @@ class Card extends Component {
   }
     
   render() {
-    // const { selected } = this.state;
     const { cardData } = this.props;
     const keys = Object.keys(this.props.cardData);
+    const { name } = this.props.cardData;
     const fillings = keys.map(key => {
-
-      return <li>{`${key}: ${cardData[key]}`}</li>
+      if (key === 'name') {
+        return null
+      }
+      return <li className={key.toLowerCase()} >{`${key}: ${cardData[key]}`}</li>
     })
 
-
-
     return (
-      <div>
+      <div className="card" >
+        <h2>{ name }</h2>
         <ul>
-          <li> {fillings} </li>
+          {fillings}
         </ul>
       </div>
     )
