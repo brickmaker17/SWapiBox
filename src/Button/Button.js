@@ -12,8 +12,8 @@ const Button = ({ purpose, image, setButtonName }) => {
 
   return (
     <div className="button" onClick={handleClick} name={purpose} >
-      <img className="favorite-button-icon" alt="img" src={image} />
-      <h2 className="button-label" >
+      <img name={purpose} className="favorite-button-icon" alt="img" src={image} />
+      <h2 name={purpose} className="button-label" >
         {purpose}
       </h2>
     </div>

@@ -23,8 +23,9 @@ class App extends Component {
       people: [],
       vehicles: [],
       planets: [],
+      empty: [],
       currentFilm: {},
-      display: 'people',
+      display: 'empty',
       favorites: [],
       favoritesActive: false,
     }
@@ -41,7 +42,7 @@ class App extends Component {
       .then(data => this.setState({vehicles: data}))
   }
 
-  setButton = (btnName) => {
+  setButtonName = (btnName) => {
     this.setState({ display: btnName })
   }
 
@@ -71,10 +72,10 @@ class App extends Component {
           year={currentFilm.release_date}
         />
         <div className="button-container">
-          <Button purpose="People" image={bb8} setButtonName={ this.setButtonName }/>
-          <Button purpose="Planet" image={deathstar} setButtonName={ this.setButtonName }/>
-          <Button purpose="Vehicle" image={falconImg} setButtonName={ this.setButtonName }/>
-          <Button purpose="Favorites" image={rebel} onClick={this.showFavorites} setButtonName={ this.setButtonName } />
+          <Button purpose="people" image={bb8} setButtonName={ this.setButtonName }/>
+          <Button purpose="planets" image={deathstar} setButtonName={ this.setButtonName }/>
+          <Button purpose="vehicles" image={falconImg} setButtonName={ this.setButtonName }/>
+          <Button purpose="favorites" image={rebel} onClick={this.showFavorites} setButtonName={ this.setButtonName } />
         </div>
         {this.state.favoritesActive ?
           <CardContainer matching={this.state[display]} addFavorite={this.addFavorite} characters={this.state.favorites} /> :
