@@ -23,15 +23,16 @@ class App extends Component {
       people: [],
       vehicles: [],
       planets: [],
-      films: [],
-      currentFilm: {}
+      currentFilm: {},
+      display: 'people',
+      favorites: [],
+      favoritesActive: false,
     }
   }
 
   componentDidMount(){
     getData()
       .then(data => this.setState({currentFilm: data}))
-
     getPeople()
       .then(data => this.setState({people: data}))
     getPlanets()
@@ -40,8 +41,28 @@ class App extends Component {
       .then(data => this.setState({vehicles: data}))
   }
 
+  setButton = (btnName) => {
+    this.setState({ display: btnName })
+  }
+
+  showFavorites = () => {
+    this.setState({
+      favoritesActive: !this.state.favoritesActive
+    })
+  }
+
+  addFavorite = (selectedCard) => {
+    if (this.state.favorites.includes(selectedCard)) {
+    } else {
+        this.setState({
+          favorites: [...this.state.favorites, selectedCard]
+        })
+
+    }
+  }
+
   render() {
-    const { currentFilm} = this.state
+    const { currentFilm, display } = this.state;
     return (
       <div className="App">
         <IntroScreen 
@@ -50,12 +71,15 @@ class App extends Component {
           year={currentFilm.release_date}
         />
         <div className="button-container">
-          <Button purpose="People" image={bb8}/>
-          <Button purpose="Planet" image={deathstar}/>
-          <Button purpose="Vehicle" image={falconImg}/>
-          <Button purpose="Favorites" image={rebel}/>
+          <Button purpose="People" image={bb8} setButtonName={ this.setButtonName }/>
+          <Button purpose="Planet" image={deathstar} setButtonName={ this.setButtonName }/>
+          <Button purpose="Vehicle" image={falconImg} setButtonName={ this.setButtonName }/>
+          <Button purpose="Favorites" image={rebel} onClick={this.showFavorites} setButtonName={ this.setButtonName } />
         </div>
-        <CardContainer characters={this.state.people} />
+        {this.state.favoritesActive ?
+          <CardContainer matching={this.state[display]} addFavorite={this.addFavorite} characters={this.state.favorites} /> :
+          <CardContainer matching={this.state[display]} addFavorite={this.addFavorite} characters={this.state.people} />
+        }
       </div>
     );
   }

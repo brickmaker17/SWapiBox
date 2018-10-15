@@ -1,5 +1,5 @@
 body {
-  background-color: #E5E5EB;
+  background-color: #E5E5EA;
   height: 200vh;
 }
 
@@ -10,7 +10,7 @@ body {
 .button-container {
   border-top: 8px solid #01226A;
   border-bottom: 8px solid #5468B1;
-  background-color: #8D7E84;
+  background-color: #E5E5EA;
   display: inline-flex;
   justify-content: space-around;
   margin: auto;

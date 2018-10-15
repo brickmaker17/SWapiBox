@@ -9,51 +9,47 @@ class Card extends Component {
 
     this.state = {
       favorite: false,
+      selected: '',
     }
+  }
+
+  componentDidMount = () => {
+    this.setState({
+      selected: this.props.display
+    })
   }
 
   changeFavorite = () => {
     this.setState({
       favorite: !this.state.favorite
     })
+    this.props.addFavorite(this.props.person)
   }
-
-  componentDidUpdate = () => {
-    const { Name, population, Species, Homeworld } = this.props.person;
-    }
     
-    render() {
-    const { name, population, species, homeworld } = this.props.person;
-    return(
-      <div className="card" >
-        <div className="card-title">
-          <h2 className="card-name">
-            { name }
-          </h2>
-        </div>
-        <p className="card-species">
-          { species }
-        </p>
-        <p className="card-home">
-          <strong>
-            home World: 
-          </strong>
-          { homeworld }
-        </p>
-        <p className="card-population">
-          <strong>
-            Population: 
-          </strong>
-          { population }
-        </p>
-        <button className="favorite-button" onClick={this.changeFavorite} >Add To Favorites</button>
+  render() {
+    // const { selected } = this.state;
+    const { cardData } = this.props;
+    const keys = Object.keys(this.props.cardData);
+    const fillings = keys.map(key => {
+
+      return <li>{`${key}: ${cardData[key]}`}</li>
+    })
+
+
+
+    return (
+      <div>
+        <ul>
+          <li> {fillings} </li>
+        </ul>
       </div>
     )
   }
 }
 
 Card.propTypes = {
-  person: PropTypes.object.isRequired,
+  cardData: PropTypes.object.isRequired,
+  addFavorite: PropTypes.func.isRequired,
 }
 
 export default Card;

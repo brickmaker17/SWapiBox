@@ -3,9 +3,15 @@ import React from 'react';
 import './Button.css';
 import PropTypes from 'prop-types';
 
-const Button = ({ purpose, image }) => {
+const Button = ({ purpose, image, setButtonName }) => {
+
+  const handleClick = (event) => {
+    let name = event.target.getAttribute('name')
+    setButtonName(name);
+  }
+
   return (
-    <div className="button" >
+    <div className="button" onClick={handleClick} name={purpose} >
       <img className="favorite-button-icon" alt="img" src={image} />
       <h2 className="button-label" >
         {purpose}
@@ -13,6 +19,7 @@ const Button = ({ purpose, image }) => {
     </div>
   )
 }
+
 
 Button.propTypes = {
   purpose: PropTypes.string.isRequired,
