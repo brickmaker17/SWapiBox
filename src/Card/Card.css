@@ -12,15 +12,11 @@ p {
   text-align: center;
 }
 
-<<<<<<< HEAD
-.person-card {
-=======
 li {
   list-style: none;
 }
 
 .card {
->>>>>>> 9a245a4a97c2cee86cce4698053923279651b642
   /* background-color: #928288; */
   background-color: #f2f2f2;
   border: 5px solid #5468B1;
