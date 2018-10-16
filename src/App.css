@@ -1,6 +1,5 @@
 body {
   background-color: #E5E5EA;
-  height: 200vh;
 }
 
 .App {
@@ -16,4 +15,8 @@ body {
   margin: auto;
   padding: 2rem 0;
   width: 100%;
+}
+
+.nav-link {
+  text-decoration: none;
 }

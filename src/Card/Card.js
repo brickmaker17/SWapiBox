@@ -24,10 +24,10 @@ class Card extends Component {
       favorite: !this.state.favorite
     })
     if (this.state.favorite) {
-      // localStorage.removeItem(`favoriteItem${this.props.cardData.name}`)
+      localStorage.removeItem(`favoriteItem${this.props.cardData.name}`)
     } else {
       this.props.addFavorite(this.props.cardData)
-      // localStorage.setItem(`favoriteItem${this.props.cardData.name}`, JSON.stringify(this.props.cardData))
+      localStorage.setItem(`favoriteItem${this.props.cardData.name}`, JSON.stringify(this.props.cardData))
     }
   }
     
