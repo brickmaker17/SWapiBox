@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Route, NavLink } from 'react-router-dom';
 
 import bb8 from './images/bb8.svg';
 import deathstar from './images/deathstar.svg';
@@ -9,6 +10,7 @@ import './App.css';
 import IntroScreen from './IntroScreen/IntroScreen.js';
 import CardContainer from './CardContainer/CardContainer.js';
 import Button from './Button/Button';
+import { throws } from 'assert';
 
 const getData = require ('./Helper/Helper').getData
 const getPeople = require('./Helper/Helper').getPeople
@@ -28,6 +30,7 @@ class App extends Component {
       display: 'empty',
       favorites: [],
       favoritesActive: false,
+      intro: true,
     }
   }
 
@@ -62,27 +65,90 @@ class App extends Component {
     }
   }
 
+  closeIntro = () => {
+    this.setState({
+      intro: false
+    })
+
+  }
+
   render() {
     const { currentFilm, display } = this.state;
+
     return (
       <div className="App">
-        <IntroScreen 
-          crawl={currentFilm.opening_crawl}
-          title={currentFilm.title}
-          year={currentFilm.release_date}
-        />
-        <div className="button-container">
-          <Button purpose="people" image={bb8} setButtonName={ this.setButtonName }/>
-          <Button purpose="planets" image={deathstar} setButtonName={ this.setButtonName }/>
-          <Button purpose="vehicles" image={falconImg} setButtonName={ this.setButtonName }/>
-          <Button purpose="favorites" image={rebel} onClick={this.showFavorites} setButtonName={ this.setButtonName } />
-        </div>
-        {this.state.favoritesActive ?
-          <CardContainer matching={this.state[display]} addFavorite={this.addFavorite} characters={this.state.favorites} /> :
-          <CardContainer matching={this.state[display]} addFavorite={this.addFavorite} characters={this.state.people} />
+
+        { this.state.intro &&
+          <Route exact path="/" render={() => {
+            return (
+              <IntroScreen 
+                crawl={currentFilm.opening_crawl}
+                title={currentFilm.title}
+                year={currentFilm.release_date}
+                closeIntro={this.closeIntro}
+              />
+            )
+          }} />
+        }
+
+        { !this.state.intro &&
+          <Route path="/" render={() => {
+            return (
+              <div>
+
+
+                <div className="button-container">
+                  <NavLink className="nav-link" to="/people">
+                    <Button purpose="people" image={bb8} setButtonName={this.setButtonName} />
+                  </NavLink>
+                  <NavLink className="nav-link" to="/planets">
+                    <Button purpose="planets" image={deathstar} setButtonName={this.setButtonName} />
+                  </NavLink>
+                  <NavLink className="nav-link" to="/vehicles">
+                    <Button purpose="vehicles" image={falconImg} setButtonName={this.setButtonName} />
+                  </NavLink>
+                  <NavLink className="nav-link" to="/favorites">
+                    <Button purpose="favorites" image={rebel} onClick={this.showFavorites} setButtonName={this.setButtonName} />
+                  </NavLink>
+                </div>
+                <Route path="/people" render={() => {
+                  return (<CardContainer
+                    matching={this.state.people}
+                    addFavorite={this.addFavorite}
+                    characters={this.state.favorites}
+                  />)
+                }}
+                />
+                <Route path="/planets" render={() => {
+                  return (<CardContainer
+                    matching={this.state.planets}
+                    addFavorite={this.addFavorite}
+                    characters={this.state.favorites}
+                  />)
+                }}
+                />
+                <Route path="/vehicles" render={() => {
+                  return (<CardContainer
+                    matching={this.state.vehicles}
+                    addFavorite={this.addFavorite}
+                    characters={this.state.favorites}
+                  />)
+                }}
+                />
+                <Route path="/favorites" render={() => {
+                  return (<CardContainer
+                    matching={this.state.favorites}
+                    addFavorite={this.addFavorite}
+                    characters={this.state.favorites}
+                  />)
+                }}
+                />
+              </div>
+            )
+          }} />
         }
       </div>
-    );
+    )
   }
 }
 

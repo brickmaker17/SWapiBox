@@ -4,6 +4,7 @@ import logo from '../images/SWlogo.png'
 import rebelClear from '../images/rebel-yellow.svg'
 import './IntroScreen.css';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 
 const IntroScreen = ( props ) => {
 
@@ -25,7 +26,14 @@ const IntroScreen = ( props ) => {
         </div>
       </div>
       <button className="intro-arrow" >
-        <img alt="" src={rebelClear} className="rebellion-button" />
+      <Link to="/">
+        <img 
+          alt="" 
+          src={rebelClear} 
+          className="rebellion-button"
+          onClick={props.closeIntro}
+        />
+      </Link>
       </button>
     </div>
   )
@@ -34,7 +42,8 @@ const IntroScreen = ( props ) => {
 IntroScreen.propTypes = {
   crawl: PropTypes.string,
   title: PropTypes.string,
-  year: PropTypes.string
+  year: PropTypes.string,
+  closeIntro: PropTypes.func,
 }
 
 export default IntroScreen;
