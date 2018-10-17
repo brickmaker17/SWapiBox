@@ -20,18 +20,22 @@ class Card extends Component {
   }
 
   changeFavorite = () => {
+    // debugger;
+    console.log('FALSE: ', this.state.favorite);
     this.setState({
       favorite: !this.state.favorite
     })
+    console.log('TRUE: ', this.state.favorite);
     this.changeFavoriteInParent()
   }
 
   changeFavoriteInParent = () => {
+    console.log(this.props.cardData)
     if (!this.state.favorite) {
       this.props.addFavorite(this.props.cardData)
-      localStorage.setItem(`favoriteItem${this.props.cardData.name}`, JSON.stringify(this.props.cardData))
+      // localStorage.setItem(`favoriteItem${this.props.cardData.name}`, JSON.stringify(this.props.cardData))
     } else {
-      localStorage.removeItem(`favoriteItem${this.props.cardData.name}`)
+      // localStorage.removeItem(`favoriteItem${this.props.cardData.name}`)
     }
   }
     
