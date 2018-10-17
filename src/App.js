@@ -79,7 +79,7 @@ class App extends Component {
       <div className="App">
 
         { this.state.intro &&
-          <Route exact path="/" render={() => {
+          <Route path="/" render={() => {
             return (
               <IntroScreen 
                 crawl={currentFilm.opening_crawl}
@@ -95,20 +95,32 @@ class App extends Component {
           <Route path="/" render={() => {
             return (
               <div>
-
-
                 <div className="button-container">
                   <NavLink className="nav-link" to="/people">
-                    <Button purpose="people" image={bb8} setButtonName={this.setButtonName} />
+                    <Button 
+                      purpose="people" 
+                      image={bb8} 
+                      setButtonName={this.setButtonName} />
                   </NavLink>
                   <NavLink className="nav-link" to="/planets">
-                    <Button purpose="planets" image={deathstar} setButtonName={this.setButtonName} />
+                    <Button 
+                      purpose="planets" 
+                      image={deathstar} 
+                      setButtonName={this.setButtonName} />
                   </NavLink>
                   <NavLink className="nav-link" to="/vehicles">
-                    <Button purpose="vehicles" image={falconImg} setButtonName={this.setButtonName} />
+                    <Button 
+                      purpose="vehicles" 
+                      image={falconImg} 
+                      setButtonName={this.setButtonName} />
                   </NavLink>
                   <NavLink className="nav-link" to="/favorites">
-                    <Button purpose="favorites" image={rebel} onClick={this.showFavorites} setButtonName={this.setButtonName} />
+                    <Button 
+                      count={this.state.favorites}
+                      purpose="favorites" 
+                      image={rebel} 
+                      onClick={this.showFavorites} 
+                      setButtonName={this.setButtonName} />
                   </NavLink>
                 </div>
                 <Route path="/people" render={() => {

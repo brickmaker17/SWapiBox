@@ -3,11 +3,20 @@ import React from 'react';
 import './Button.css';
 import PropTypes from 'prop-types';
 
-const Button = ({ purpose, image, setButtonName }) => {
+const Button = ({ purpose, image, setButtonName, count }) => {
 
   const handleClick = (event) => {
-    let name = event.target.getAttribute('name')
+    let name = event.target.getAttribute('name');
     setButtonName(name);
+  }
+  
+  const favoritesCount = () => {
+    console.log('COUNT: ', count.length)
+    if (count.length) {
+      return <h2>({count.length})</h2>;
+    } else {
+      return <h2>(0)</h2>;
+    }
   }
 
   return (
@@ -16,6 +25,7 @@ const Button = ({ purpose, image, setButtonName }) => {
       <h2 name={purpose} className="button-label" >
         {purpose}
       </h2>
+        { favoritesCount }
     </div>
   )
 }
@@ -23,6 +33,7 @@ const Button = ({ purpose, image, setButtonName }) => {
 
 Button.propTypes = {
   purpose: PropTypes.string.isRequired,
+  count: PropTypes.array,
   // image: PropTypes.
 }
 
