@@ -1,16 +1,29 @@
 import React from 'react';
 import { configure, shallow } from 'enzyme';
 
+import App from '../App'
+
 import Helper from './Helper';
+import { promises } from 'fs';
+
+const getData = require('./Helper').getData;
 
 describe('Helper', () => {
-  it('should call getData', () => {
+  let wrapper;
+
+  beforeEach(() => {
+    wrapper = shallow(<App />)
   })
 
-  it('getData should call fetch with correct param', () => {
-  })
+  it('getData should call fetch with correct param', async () => {
+    const expected = 'https://swapi.co/api/';
 
-  it('getData should call getFilms', () => {
+    window.fetch = jest.fn().mockImplementation(() => Promise.resolve({
+      status: 200
+    }))
+    console.log(Helper)
+    getData()
+    await expect(window.fetch).toHaveBeenCalledWith(expected)
   })
 
   it('getFilms gets called with the correct params', () => {
@@ -42,5 +55,4 @@ describe('Helper', () => {
 
   it('getPlanets should call fetch with the correct params', () => {
   })
-  
 })
