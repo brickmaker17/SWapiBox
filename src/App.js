@@ -12,10 +12,10 @@ import CardContainer from './CardContainer/CardContainer.js';
 import Button from './Button/Button';
 import { throws } from 'assert';
 
-const getData = require ('./Helper/Helper').getData
-const getPeople = require('./Helper/Helper').getPeople
-const getPlanets = require('./Helper/Helper').getPlanets
-const getVehicles = require('./Helper/Helper').getVehicles
+const getData = require ('./Helper/Helper').getData;
+const getPeople = require('./Helper/Helper').getPeople;
+const getPlanets = require('./Helper/Helper').getPlanets;
+const getVehicles = require('./Helper/Helper').getVehicles;
 
 class App extends Component {
   constructor() {
@@ -56,13 +56,22 @@ class App extends Component {
   }
 
   addFavorite = (selectedCard) => {
-    if (this.state.favorites.includes(selectedCard)) {
+    if (!this.state.favorites.includes(selectedCard)) {
+      this.setState({
+        favorites: [...this.state.favorites, selectedCard]
+      })
     } else {
-        this.setState({
-          favorites: [...this.state.favorites, selectedCard]
-        })
-
+      let updatedFavorites = this.state.favorites.filter(object => {
+        return object !== selectedCard
+      })
+      this.setState({
+        favorites: updatedFavorites
+      })
     }
+  }
+  
+  componentDidUpdate = () => {
+    localStorage.setItem('AppFavorites', JSON.stringify(this.state.favorites))
   }
 
   closeIntro = () => {
