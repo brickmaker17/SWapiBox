@@ -55,4 +55,8 @@ describe('Helper', () => {
 
   it('getPlanets should call fetch with the correct params', () => {
   })
+<<<<<<< HEAD
+=======
+
+>>>>>>> 2b77a61e9b5b758ffa392df6e752f55e73e1867b
 })
