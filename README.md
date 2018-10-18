@@ -27,14 +27,14 @@ Additional enhancments could include :
 ### Setup
 
 1. Clone down repo
-2. npm install from root directory
-3. npm start and visit localhost:3000 in your browser
+2. `npm install` from root directory
+3. `npm start` and visit localhost:3000 in your browser
 
 ### Test Driven Development
 
 SWapi-Box uses jest and enzyme for all testing purposes
 
-npm test from the associated root directory
+`npm test` from the associated root directory
 
 ### Original Assignment
 
