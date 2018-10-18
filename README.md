@@ -38,5 +38,5 @@ npm test from the associated root directory
 
 ### Contributors
 
-Justin Stewart: [Github](https://github.com/Jstewart3313)
+Justin Stewart: [Github](https://github.com/Jstewart3313)<br>
 Alex Bruce: [Github](https://github.com/Alexbruce1)
