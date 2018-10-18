@@ -17,7 +17,7 @@ Additional enhancments could include :
 * Additional UI features to enhance the user experience
 
 ### ScreenShots
-![IntroScreen](/src/images/swapintro.png)
+![IntroScreen](/src/images/swapiIntro.png)
 
 
 ### Setup
