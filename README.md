@@ -2,7 +2,7 @@
 An interactive site to display, and tag your favorite Star Wars characters, planets and vehicles.
 
 ### See it Live
-@ [SWapi-Box](https://ab-js-swapibox.herokuapp.com/favorites)
+[SWapi-Box](https://ab-js-swapibox.herokuapp.com/favorites) on Heroku
 
 ### APIs Used
 * Star Wars 
