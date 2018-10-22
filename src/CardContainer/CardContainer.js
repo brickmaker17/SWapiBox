@@ -5,7 +5,7 @@ import Card from '../Card/Card';
 import PropTypes from 'prop-types';
 
 const CardContainer = ({ matching, addFavorite }) => {
-  const returnCharacters = matching.map(character => {
+  const returnCharacters = matching.map( character => {
     return <Card key={character.name} addFavorite={addFavorite} cardData={character} />
   })
   return (

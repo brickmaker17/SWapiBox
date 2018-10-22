@@ -1,22 +1,23 @@
 let randomNumber = Math.floor(Math.random() * 6) + 1;
 
-const getData = async () => {
+export const getData = async () => {
     const url = 'https://swapi.co/api/'
 
     
     const response = await fetch(url)
     const data = await response.json()
+    console.log(data.films)
     const returnMovieData = await fetchFilms(data.films)
     return returnMovieData
 };
 
-const fetchFilms = async (filmUrl) => {
+export const fetchFilms = async (filmUrl) => {
     const response = await fetch(filmUrl)
     const data = await response.json();
     return data.results[randomNumber];
 }
 
-const getPeople = async () => {
+export const getPeople = async () => {
     const url = 'https://swapi.co/api/people';
     const response = await  fetch(url)
     const data = await response.json()
@@ -24,13 +25,13 @@ const getPeople = async () => {
     return people
 }
 
-const fetchPerson = async (array) => {
+export const fetchPerson = async (array) => {
     let person = {}
     const characters = array.map( async character => {
         person = {
             name: character.name,
-            species: await getSpecies(character.species[0]),
-            homeworld: await getHomeworld(character.homeworld),
+            Species: await getSpecies(character.species[0]),
+            Homeworld: await getHomeworld(character.homeworld),
             population: await getPopulation(character.homeworld),
 
         }
@@ -40,26 +41,26 @@ const fetchPerson = async (array) => {
     return Promise.all(characters);
 }
 
-const getSpecies = async (url) => {
+export const getSpecies = async (url) => {
     const response = await fetch(url)
     const species = await response.json()
     return species.name
 }
 
-const getHomeworld = async (url) => {
+export const getHomeworld = async (url) => {
     const response = await fetch(url)
     const homeWorld = await response.json()
     return homeWorld.name;
 }
 
-const getPopulation = async (url) => {
+export const getPopulation = async (url) => {
     const repsonse = await fetch(url);
     const homeWorld = await repsonse.json();
     return homeWorld.population
 }
 
 
-const getPlanets = async () => {
+export const getPlanets = async () => {
     const url = 'https://swapi.co/api/planets/'
 
     let planet = {}
@@ -77,7 +78,6 @@ const getPlanets = async () => {
                 climate: world.climate,
                 residents: await residents,
             }
-            console.log(planet1)
             return planet
         })
         
@@ -85,14 +85,14 @@ const getPlanets = async () => {
 }
 
 
-const fetchResident = async (url) => {
+export const fetchResident = async (url) => {
     const response = await fetch(url);
     const data = await response.json();
     return data.name
 }
 
 
-const getVehicles = async () => {
+export const getVehicles = async () => {
     const url = 'https://swapi.co/api/vehicles/'
     let vehicle = {}
     const response = await fetch(url);
@@ -108,14 +108,3 @@ const getVehicles = async () => {
     
     return newVehicle
 }
-
-
-
-const _getData = getData;
-export { _getData as getData };
-const _getPeople = getPeople;
-export { _getPeople as getPeople };
-const _getPlanets = getPlanets;
-export { _getPlanets as getPlanets };
-const _getVehicles = getVehicles;
-export { _getVehicles as getVehicles };
