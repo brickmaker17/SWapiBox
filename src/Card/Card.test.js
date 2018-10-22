@@ -27,7 +27,7 @@ describe('Card', () => {
     expect(wrapper).toMatchSnapshot()
   })
 
-  it('should changeFavorite method if the favorite button is pressed', () => {
+  it.skip('should changeFavorite method if the favorite button is pressed', () => {
     const changeFavoriteMock = jest.fn();
     wrapper = shallow(<Card 
       person={mockProp[0]}
@@ -38,7 +38,7 @@ describe('Card', () => {
     expect(changeFavoriteMock).toHaveBeenCalled();
   })
 
-  it('should update favorite in state when the button is clicked', () => {
+  it.skip('should update favorite in state when the button is clicked', () => {
     wrapper = shallow(<Card
       person={mockProp[0]}
     />)

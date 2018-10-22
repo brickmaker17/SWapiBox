@@ -1,7 +1,9 @@
 .intro-container {
   background-color: black;
+  overflow: hidden;
   height: 100vh;
   width: 100%;
+  position: fixed;
 }
 
 .title-container {

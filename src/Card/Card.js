@@ -25,7 +25,6 @@ class Card extends Component {
     this.setState({
       favorite: !this.state.favorite
     })
-    console.log('TRUE: ', this.state.favorite);
     this.changeFavoriteInParent()
   }
 
@@ -41,7 +40,8 @@ class Card extends Component {
     
   render() {
     const { cardData } = this.props;
-    const keys = Object.keys(this.props.cardData);
+    const keys = Object.keys(cardData);
+    console.log(this.props.CardData)
     const { name } = this.props.cardData;
     const fillings = keys.map(key => {
       if (key === 'name') {

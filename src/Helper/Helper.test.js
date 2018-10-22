@@ -7,6 +7,7 @@ import Helper from './Helper';
 import { promises } from 'fs';
 
 const getData = require('./Helper').getData;
+const fetchFilms = require('./Helper').fetchFilms;
 
 describe('Helper', () => {
   let wrapper;
@@ -15,22 +16,33 @@ describe('Helper', () => {
     wrapper = shallow(<App />)
   })
 
-  it('getData should call fetch with correct param', async () => {
+  it.skip('getData should call fetch with correct param', async () => {
     const expected = 'https://swapi.co/api/';
 
     window.fetch = jest.fn().mockImplementation(() => Promise.resolve({
       status: 200
     }))
-    console.log(Helper)
     getData()
     await expect(window.fetch).toHaveBeenCalledWith(expected)
   })
 
-  it('getFilms gets called with the correct params', () => {
+  it.skip('fetchFilms gets called with the correct params', async () => {
+    const expected = 'https://swapi.co/api/films/'
+    
+    const mockFunction = jest.fn()
+
+    await expect(mockFunction).toHaveBeenCalledWith(expected);
   })
 
-  it('getFilms calls fetch with the proper params', () => {
-  })
+  // it('fetchFilms calls fetch with the proper params', async () => {
+  //   const expected = 'https://swapi.co/api/films/'
+
+  //   window.fetch = jest.fn().mockImplementation(() =>  Promise.resolve({
+  //       status: 200
+  //     }))
+  //   // fetchFilms()
+  //   await expect(window.fetch).toHaveBeenCalledWith(expected);
+  // })
 
   it('should call getPeople', () => {
   })
@@ -55,8 +67,4 @@ describe('Helper', () => {
 
   it('getPlanets should call fetch with the correct params', () => {
   })
-<<<<<<< HEAD
-=======
-
->>>>>>> 2b77a61e9b5b758ffa392df6e752f55e73e1867b
 })

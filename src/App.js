@@ -11,11 +11,7 @@ import IntroScreen from './IntroScreen/IntroScreen.js';
 import CardContainer from './CardContainer/CardContainer.js';
 import Button from './Button/Button';
 import { throws } from 'assert';
-
-const getData = require ('./Helper/Helper').getData;
-const getPeople = require('./Helper/Helper').getPeople;
-const getPlanets = require('./Helper/Helper').getPlanets;
-const getVehicles = require('./Helper/Helper').getVehicles;
+import * as API from './Helper/Helper';
 
 class App extends Component {
   constructor() {
@@ -35,13 +31,13 @@ class App extends Component {
   }
 
   componentDidMount() {
-    getData()
+    API.getData()
       .then(data => this.setState({currentFilm: data}))
-    getPeople()
+    API.getPeople()
       .then(data => this.setState({people: data}))
-    getPlanets()
+    API.getPlanets()
       .then(data => this.setState({planets: data }))
-    getVehicles()
+    API.getVehicles()
       .then(data => this.setState({vehicles: data}))
   }
 
