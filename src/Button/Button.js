@@ -9,15 +9,6 @@ const Button = ({ purpose, image, setButtonName, count }) => {
     let name = event.target.getAttribute('name');
     setButtonName(name);
   }
-  
-  const favoritesCount = () => {
-    console.log('COUNT: ', count.length)
-    if (count.length) {
-      return <h2>({count.length})</h2>;
-    } else {
-      return <h2>(0)</h2>;
-    }
-  }
 
   return (
     <div className="button" onClick={handleClick} name={purpose} >
@@ -25,16 +16,15 @@ const Button = ({ purpose, image, setButtonName, count }) => {
       <h2 name={purpose} className="button-label" >
         {purpose}
       </h2>
-        { favoritesCount }
     </div>
   )
 }
 
 
+
 Button.propTypes = {
   purpose: PropTypes.string.isRequired,
-  count: PropTypes.array,
-  // image: PropTypes.
+  image: PropTypes.string.isRequired,
 }
 
 export default Button;

@@ -12,6 +12,10 @@
   vertical-align: middle;
 }
 
+.active {
+  border: none;
+}
+
 .button:hover {
   /* box-shadow: 0 .5px 1px #000; */
   border: 4px solid white;

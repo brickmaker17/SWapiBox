@@ -107,24 +107,28 @@ class App extends Component {
                 <div className="button-container">
                   <NavLink className="nav-link" to="/people">
                     <Button 
+                      activeClassName="active"
                       purpose="people" 
                       image={bb8} 
                       setButtonName={this.setButtonName} />
                   </NavLink>
                   <NavLink className="nav-link" to="/planets">
                     <Button 
+                      activeClassName="active"
                       purpose="planets" 
                       image={deathstar} 
                       setButtonName={this.setButtonName} />
                   </NavLink>
                   <NavLink className="nav-link" to="/vehicles">
                     <Button 
+                      activeClassName="active"
                       purpose="vehicles" 
                       image={falconImg} 
                       setButtonName={this.setButtonName} />
                   </NavLink>
                   <NavLink className="nav-link" to="/favorites">
                     <Button 
+                      activeClassName="active"
                       count={this.state.favorites}
                       purpose="favorites" 
                       image={rebel} 

@@ -1,5 +1,4 @@
 import React from 'react';
-import { Route } from 'react-router-dom';
 import './CardContainer.css';
 import Card from '../Card/Card';
 import PropTypes from 'prop-types';
