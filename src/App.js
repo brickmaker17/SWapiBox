@@ -27,6 +27,7 @@ class App extends Component {
       favorites: [],
       favoritesActive: false,
       intro: true,
+      favorite: false,
     }
   }
 
@@ -78,8 +79,7 @@ class App extends Component {
   }
 
   render() {
-    const { currentFilm, display } = this.state;
-
+    const { currentFilm, display, favorite } = this.state;
     return (
       <div className="App">
 
@@ -133,6 +133,8 @@ class App extends Component {
                     matching={this.state.people}
                     addFavorite={this.addFavorite}
                     characters={this.state.favorites}
+                    favorite={favorite}
+                    display={display}
                   />)
                 }}
                 />
@@ -141,6 +143,8 @@ class App extends Component {
                     matching={this.state.planets}
                     addFavorite={this.addFavorite}
                     characters={this.state.favorites}
+                    favorite={favorite}
+                    display={display}
                   />)
                 }}
                 />
@@ -149,6 +153,8 @@ class App extends Component {
                     matching={this.state.vehicles}
                     addFavorite={this.addFavorite}
                     characters={this.state.favorites}
+                    favorite={favorite}
+                    display={display}
                   />)
                 }}
                 />
@@ -157,6 +163,8 @@ class App extends Component {
                     matching={this.state.favorites}
                     addFavorite={this.addFavorite}
                     characters={this.state.favorites}
+                    favorite={favorite}
+                    display={display}
                   />)
                 }}
                 />
